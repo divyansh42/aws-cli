@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: aws-run
+spec:
+  taskRef:
+    name: aws-cli
+  params:
+    - name: ARGS
+      value:
+        - s3
+        - cp
+        - $(workspaces.source.path)/demo.zip
+        - s3://diagrawa-test-bucket/test/demo.zip
+  workspaces:
+    - name: source
+      configmap:
+        name: upload-file
