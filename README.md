@@ -63,5 +63,6 @@ See [here](../aws-cli/example/s3-run.yaml) for example of `aws s3` command.
     ```
     workspaces:
       - name: images-url
-        emptyDir: {}
+        configmap:
+            name: upload-file 
     ```
