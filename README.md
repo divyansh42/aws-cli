@@ -18,7 +18,7 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/v1beta1/aws-
 ## Workspace
 
 - **source**: To mount file which is to be uploaded to the aws resources, 
-    this should be mounted using `configMap`.
+    this should be mounted using `ConfigMap`.
 
 
 ## Secret
@@ -26,7 +26,7 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/v1beta1/aws-
 AWS `credentials` and `config` both should be provided in the form of `secret`,
  which is mounted as `volume` in the task.
 
-[This](../aws-cli/example/secret.yaml) example can be referred to create `aws-secrets`.
+[This](./example/secret.yaml) example can be referred to create `aws-secrets`.
 
 
 ## Usage
@@ -37,13 +37,13 @@ specifying the command you would like to run as the `ARGS` or `SCRIPT` param.
 The `ARGS` param takes an array of aws subcommands that will be executed as 
 part of this task and the `SCRIPT` param takes the command that you would like to run on aws CLI.
 
-Following `command` can be used to create `configMap` from the `file`.
+Following `command` can be used to create `ConfigMap` from the `file`.
 ```
 kubectl create configmap upload-file --from-file=demo.zip
 ```
-Here `upload-file` is the name of the `configMap`, this can be changed based on the requirements.
+Here `upload-file` is the name of the `ConfigMap`, this can be changed based on the requirements.
 
-See [here](../aws-cli/example/s3-run.yaml) for example of `aws s3` command.
+See [here](./example/run.yaml) for example of `aws s3` command.
 
 
 ### Note
@@ -58,7 +58,7 @@ See [here](../aws-cli/example/s3-run.yaml) for example of `aws s3` command.
       - name: images-url
         emptyDir: {}
     ```
-    otherwise, if configMap is needed:
+    otherwise, if ConfigMap is needed:
 
     ```
     workspaces:
