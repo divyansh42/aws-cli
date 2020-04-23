@@ -18,7 +18,7 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/v1beta1/aws-
 ## Workspace
 
 - **source**: To mount file which is to be uploaded to the aws resources, 
-    this should be mounted using `ConfigMap`.
+    this should be mounted using any volume supported in workspace.
 
 
 ## Secret
@@ -36,6 +36,9 @@ specifying the command you would like to run as the `ARGS` or `SCRIPT` param.
 
 The `ARGS` param takes an array of aws subcommands that will be executed as 
 part of this task and the `SCRIPT` param takes the command that you would like to run on aws CLI.
+
+In the [example](./example/secret.yaml), `ConfigMap` as the volume is used. In place of ConfigMap, any volume 
+supported in workspace can be used.
 
 Following `command` can be used to create `ConfigMap` from the `file`.
 ```
@@ -58,7 +61,7 @@ See [here](./example/run.yaml) for example of `aws s3` command.
       - name: images-url
         emptyDir: {}
     ```
-    otherwise, if ConfigMap is needed:
+    otherwise, if `Volume(e.g. ConfigMap)` is needed:
 
     ```
     workspaces:
