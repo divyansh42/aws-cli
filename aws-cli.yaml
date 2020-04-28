@@ -5,6 +5,8 @@ metadata:
 spec:
   workspaces:
     - name: source
+    - name: secrets
+      mountPath: /tekton/home/.aws
   params:
     - name: SCRIPT
       description: The AWS script to run
@@ -17,14 +19,6 @@ spec:
   steps:
     - name: awscli
       image: amazon/aws-cli:latest
-      workingDir: "/tekton/home/.aws"
       script: "$(params.SCRIPT)"
       args:
-        - "$(params.ARGS)"
-      volumeMounts:
-        - name: aws-secrets
-          mountPath: "/tekton/home/.aws"
-  volumes:
-    - name: aws-secrets
-      secret:
-        secretName: aws-secrets
+        - "$(params.ARGS)"  
