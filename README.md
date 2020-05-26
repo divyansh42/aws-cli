@@ -10,7 +10,7 @@ All aws cli commands can be found [here](https://docs.aws.amazon.com/cli/latest/
 kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/v1beta1/aws-cli/aws-cli.yaml
 ```
 
-## Parameters
+## Parameter
 
 - **SCRIPT**: The script of aws commands to execute e.g. `aws $1 $2` This will take
  the first value and second value of ARGS as `s3` and `ls` (default: `aws $@`)
