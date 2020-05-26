@@ -77,7 +77,7 @@ See [here](../aws-cli/example/run.yaml) for example of `aws s3` command.
       - name: source
         emptyDir: {}
     ```
-    otherwise, if `Volume(e.g. ConfigMap) is needed:
+    otherwise, if `Volume(e.g. ConfigMap) is needed::
 
     ```
     workspaces:
