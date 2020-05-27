@@ -1,6 +1,6 @@
 # aws 
 
-This task performs operations on Amazon Web Services resources using `aws`..
+This task performs operations on Amazon Web Services resources using `aws`.
 
 All aws cli commands can be found [here](https://docs.aws.amazon.com/cli/latest/reference/).
 
