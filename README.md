@@ -46,7 +46,7 @@ This [example](../aws-cli/example/secret.yaml), can be referred to create secret
 
 In the [example](../aws-cli/example/run.yaml), ConfigMap as the volume is used. In place of ConfigMap, any volume supported in workspace can be used.
 
-Following `command` can be used to create `ConfigMap` from the `file`.
+Following `command` can be used to create `ConfigMap` from the `file`..
 ```
 kubectl create configmap upload-file --from-file=demo.zip
 ```
